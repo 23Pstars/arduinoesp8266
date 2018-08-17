@@ -47,7 +47,7 @@
 #define MAX_DEVICES 8
 #define CLK_PIN   D5 // or SCK
 #define DATA_PIN  D7 // or MOSI
-#define CS_PIN    D2 // or SS
+#define CS_PIN    D8 // or SS
 
 // HARDWARE SPI
 MD_Parola P = MD_Parola(HARDWARE_TYPE, CS_PIN, MAX_DEVICES);
@@ -69,7 +69,7 @@ textPosition_t scrollAlign = PA_LEFT;
 uint16_t scrollPause = 1000; // in milliseconds
 
 // Global message buffers shared by Serial and Scrolling functions
-#define	BUF_SIZE	75
+#define  BUF_SIZE  75
 char curMessage[BUF_SIZE] = { "" };
 char newMessage[BUF_SIZE] = { "Hello! Enter new message?" };
 bool newMessageAvailable = false;
@@ -94,7 +94,7 @@ char WebPage[] =
 "<!DOCTYPE html>" \
 "<html>" \
 "<head>" \
-"<title>MajicDesigns Test Page</title>" \
+"<title>LED Matrix</title>" \
 
 "<script>" \
 "strLine = \"\";" \
@@ -114,7 +114,7 @@ char WebPage[] =
 "</head>" \
 
 "<body>" \
-"<p><b>MD_Parola set message</b></p>" \
+"<p><b>Set message</b></p>" \
 
 "<form id=\"data_form\" name=\"frmText\">" \
 "<label>Message:<br><input type=\"text\" name=\"Message\" maxlength=\"255\"></label>" \
