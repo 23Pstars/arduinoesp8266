@@ -4,16 +4,19 @@
 RTC_DS1307 rtc;
 
 char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+//pin relay
 int pinD = D7;
 
 void setup () {
   Serial.begin(57600);
-
+  //pin 0 flash button guna sebagai input
   pinMode(0, INPUT_PULLUP);
   pinMode(pinD,OUTPUT);
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(pinD,HIGH);
   digitalWrite(LED_BUILTIN,HIGH);
+  
+  //tutup wifi untuk jimat battery
   WiFi.forceSleepBegin(); 
   Serial.println("forceSleepBegin");
     
@@ -49,8 +52,6 @@ void setup () {
 void loop () {
 
     DateTime now = rtc.now();
-
-
 
     // jalan pkl 7 malam dan 7 pagi
     if((now.hour()==7||now.hour()==19) && now.minute()==0 && now.second()>=0 && now.second()<=20) 
